@@ -1,7 +1,9 @@
+import { Button } from "./components/ui/button";
+
 function App() {
   return (
     <>
-      <h1 className=""></h1>
+      <Button variant="outline">This is button.</Button>
     </>
   );
 }
