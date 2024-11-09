@@ -45,7 +45,7 @@ app.use("/api/admin", adminRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/albums", albumRoutes);
 app.use("/api/songs", songRoutes);
-app.use("/api/stat", statRoutes);
+app.use("/api/stats", statRoutes);
 
 // error handler
 app.use((err, req, res, next) => {
