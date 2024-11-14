@@ -1,6 +1,7 @@
 import { axiosInstance } from "@/lib/axios";
 import { Message, User } from "@/types";
 import { create } from "zustand";
+import { io } from "socket.io-client";
 
 interface ChatStore {
   users: User[];
@@ -26,16 +27,16 @@ const baseURL =
     ? import.meta.env.VITE_SOCKET_URL
     : "/";
 
-// const socket = io(baseURL, {
-//   autoConnect: false, // only connect if user is authenticated
-//   withCredentials: true,
-// });
+const socket = io(baseURL, {
+  autoConnect: false, // only connect if user is authenticated
+  withCredentials: true,
+});
 
 export const useChatStore = create<ChatStore>((set, get) => ({
   users: [],
   isLoading: false,
   error: null,
-  //   socket: socket,
+  socket: socket,
   isConnected: false,
   onlineUsers: new Set(),
   userActivities: new Map(),
